@@ -10,6 +10,7 @@ public class EnemyCall : MonoBehaviour
     [SerializeField] private float _sceneDuration;
 
     private Transform[] _spawnPoints;
+    private float spawnWait = 2f;
 
     private void Start()
     {
@@ -20,7 +21,7 @@ public class EnemyCall : MonoBehaviour
             _spawnPoints[i] = _spawnMap.GetChild(i);
         }
 
-        var enemySpawn = StartCoroutine(SpawnEnemies(2));
+        var enemySpawn = StartCoroutine(SpawnEnemies(spawnWait));
     }
 
     private IEnumerator SpawnEnemies(float duration)
